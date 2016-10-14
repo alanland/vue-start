@@ -32,16 +32,16 @@ export default {
 }
 </script>
 
-<style>
+<style lang="stylus">
 html {
   height: 100%;
-}
 
-body {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
 }
 
 #app {
@@ -50,11 +50,10 @@ body {
   max-width: 600px;
   font-family: Source Sans Pro, Helvetica, sans-serif;
   text-align: center;
-}
-
-#app a {
-  color: #42b983;
-  text-decoration: none;
+  a {
+    color: #42b983;
+    text-decoration: none;
+  }
 }
 
 .logo {
