@@ -7,3 +7,6 @@ test/e2e/reports
 selenium-debug.log
 
 .idea
+
+src/**/*compiled.js
+src/**/*compiled.js.map
