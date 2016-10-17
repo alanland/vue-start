@@ -2,7 +2,9 @@
   <div id="app">
     <img class="logo" src="./assets/logo.png">
     <!--<hello></hello>-->
-    <bar class="abc"></bar>
+    <bar></bar>
+    <pie></pie>
+    <scatter-data-zoom-all></scatter-data-zoom-all>
     <p>
       Welcome to your Vue.js app!
     </p>
@@ -26,10 +28,12 @@
 <script>
 // import Hello from './components/Hello'
 import Bar from './components/Bar'
+import Pie from './components/Pie'
+import ScatterDataZoomAll from './components/ScatterDataZoomAll'
 
 export default {
   components: {
-    Bar
+    Bar, Pie, ScatterDataZoomAll
   }
 }
 </script>
