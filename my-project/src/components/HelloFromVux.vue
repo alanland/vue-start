@@ -5,6 +5,7 @@
   </div>
   <group title="cell demo">
     <cell title="Vux" value="Cool" is-link></cell>
+    <cell title="Vuxx" value="Cool2" ></cell>
   </group>
 </template>
 

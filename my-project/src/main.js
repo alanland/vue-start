@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import App from './App'
-import Home from './components/HelloFromVux'
+import Home from './components/WorkSheet'
 import VueRouter from 'vue-router'
 
 const FastClick = require('fastclick')
@@ -17,4 +17,3 @@ router.map({
 })
 
 router.start(App, '#app')
-
