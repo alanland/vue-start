@@ -5,7 +5,7 @@
     </tab>
     <div class="group">
       <group>
-        <div style='float: left;width: 100%'>
+        <div class="dateGroup" style='float: left;width: 100%'>
           <div class='floatdivBttuons'>
             <x-button :text='lastweekbtn' @click='addCurrentDay(-7)'></x-button>
           </div>
@@ -25,9 +25,9 @@
         <selector :value.sync='projectValue' title='项目' :options='projectCodelist'
                   @on-change='projectOnChange'></selector>
         <selector :value.sync='actionValue' title='分类' :options='actionCodelist' @on-change='actionOnChange'></selector>
-        <cell :inline-desc='' 工时:
-        '+workhour' primary='content'>
-        <range slot='value' :value.sync='workhour' :min=0 :max=8 :step=1></range>
+
+        <cell :inline-desc="'工时: '+workhour" primary='content'>
+          <range slot='value' :value.sync='workhour' :min=0 :max=8 :step=1></range>
         </cell>
         <x-textarea :max='200' class='textareas' placeholder='请输入详细描述' required=true
                     :value.sync='msgValue'></x-textarea>
@@ -111,60 +111,36 @@
       addCurrentDay (days) {
         let d = new Date(this.currentDay)
         let newDate = new Date(d.valueOf() + days * 24 * 60 * 60 * 1000)
-        JSON.stringify(newDate).substring(1, 11)
+        this.currentDay = JSON.stringify(newDate).substring(1, 11)
       }
 
     }
   }
 
 </script>
-<style>
+<style lang="stylus">
   .group {
     margin: 10px;
+  }
+
+  .dateGroup {
+    .weui_btn {
+      color: red;
+      background: none;
+      border: none;
+      &:after {
+        content: '';
+        width:0;
+        height: 0;
+        border-radius: 0;
+       }
+    }
   }
 
   .textareas {
     border: 1px solid;
     border-color: rgba(105, 85, 85, 0.45);
 
-  }
-
-  .weui_cell_ft.with_arrow:after {
-    content: " ";
-    display: inline-block;
-    -webkit-transform: rotate(45deg);
-    transform: rotate(45deg);
-    /*height: 6px;*/
-    /*width: 6px;*/
-    /*border-width: 2px 2px 0 0;*/
-    height: 0px;
-    width: 0px;
-    border-width: 0px 0px 0 0;
-    border-color: #c8c8cd;
-    border-style: solid;
-    position: relative;
-    top: -1px;
-    margin-left: .3em;
-  }
-
-  .weui_cell_ft.weui_cell_primary.with_arrow::before {
-    content: " ";
-    display: inline-block;
-    -webkit-transform: rotate(45deg);
-    transform: rotate(45deg);
-    height: 0px;
-    width: 0px;
-    border-width: 0px 0px 0px 0px;
-    border-color: #c8c8cd;
-    border-style: solid;
-    position: relative;
-    top: -1px;
-    margin-left: .3em;
-  }
-
-  .weui_cell_ft {
-    text-align: center;
-    color: #888;
   }
 
   .floatdivBttuons {
@@ -175,10 +151,12 @@
   .currentDay {
     float: left;
     width: 40%;
-  }
-
-  .currentDay .weui_cell {
-    text-align: center
+    .weui_cell_ft.with_arrow {
+      text-align: center;
+      &:after{
+        display: none;
+      }
+    }
   }
 </style>
 
