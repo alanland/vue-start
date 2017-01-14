@@ -1,0 +1,5 @@
+styles/**/*.css
+js/**/*-compiled.js
+/**/*-compiled.js.map
+/**/*.js.map
+/**/*-compiled.js
